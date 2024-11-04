@@ -23,8 +23,9 @@ def send_text():
         response_data = response.json()
 
         # Display the result in a message box
+        text_entry.delete("1.0", tk.END)  # Clear the text widget
         result = f"Passive sentences:\n{response_data}"
-        messagebox.showinfo("Response", result)
+        text_entry.insert("1.0", result)  # Insert the result into the text widget
 
     except requests.exceptions.ConnectionError:
         # Handle the case where the server is not running
