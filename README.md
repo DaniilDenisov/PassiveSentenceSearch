@@ -18,3 +18,8 @@ follows:
 curl --location 'http://127.0.0.1:5000/get_passive_sentences' \
 --header 'Content-Type: application/json' \
 --data '{"text":"The cake was eaten by the children. The children ate the cake."}'
+
+6. You can also use SimpleClient.py to connect the Flast service running.
+For this you open another cmd window , activate the venv and type:
+python SimpleClient.py
+The client asks for the text and performs request to http://127.0.0.1:5000/get_passive_sentences.
