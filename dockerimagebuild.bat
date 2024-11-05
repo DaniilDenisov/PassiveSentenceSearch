@@ -1,0 +1,1 @@
+docker build -t passive-sentence-search-srvc .
