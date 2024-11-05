@@ -23,3 +23,5 @@ curl --location 'http://127.0.0.1:5000/get_passive_sentences' \
 For this you open another cmd window , activate the venv and type:
 python SimpleClient.py
 The client asks for the text and performs request to http://127.0.0.1:5000/get_passive_sentences.
+7. In Windows Docker Desktop should run to build and rin images as containers. Commands to run and build images
+are provided in bat files.
