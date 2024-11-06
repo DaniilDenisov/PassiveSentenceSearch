@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from PassiveNLPFunctions import find_passive_sentences
+from PassiveNLPFunctions import find_passive_nltk, find_passive_spacy
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -15,7 +15,7 @@ def get_passive_sentences():
     text = data.get('text', '')
     
     # Find passive sentences
-    passive_sentences = find_passive_sentences(text)
+    passive_sentences = find_passive_nltk(text)
     
     # Return the result as JSON
     return jsonify({"passive_sentences": passive_sentences})

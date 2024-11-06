@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r requirements-docker.txt
 # Install the spaCy model
 RUN python -m spacy download en_core_web_sm
 
+# Install NLTK and download required resources
+RUN python -m nltk.downloader punkt punkt_tab averaged_perceptron_tagger_eng
+
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 
