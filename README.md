@@ -21,28 +21,34 @@ v
    - (venv)> python PassiveSentenceSearch.py
 5. Access the http://127.0.0.1:5000/get_passive_spacy or http://127.0.0.1:5000/get_passive_nltk
 with curl or postman as follows:
-
+```
 curl --location 'http://127.0.0.1:5000/get_passive_spacy' \
 --header 'Content-Type: application/json' \
 --data '{"text":"The cake was eaten by the children. The children ate the cake."}'
+```
 or
+```
 curl --location 'http://127.0.0.1:5000/get_passive_nltk' \
 --header 'Content-Type: application/json' \
 --data '{"text":"The cake was eaten by the children. The children ate the cake."}'
-
+```
+```
 curl --location 'http://127.0.0.1:5000/get_passive_spacy' \
 --header 'Content-Type: application/json' \
 --data '{
   "text": "You have to be tested on your English grammar. John might be promoted next year. She wants to be invited to the party. I expect to be surprised on my birthday. You may be disappointed. I remember being taught to drive. The children are excited about being taken to the zoo. Most film stars hate being interviewed. Poodles like to be pampered."
 }
 '
+```
 or
+```
 curl --location 'http://127.0.0.1:5000/get_passive_nltk' \
 --header 'Content-Type: application/json' \
 --data '{
   "text": "You have to be tested on your English grammar. John might be promoted next year. She wants to be invited to the party. I expect to be surprised on my birthday. You may be disappointed. I remember being taught to drive. The children are excited about being taken to the zoo. Most film stars hate being interviewed. Poodles like to be pampered."
 }
 '
+```
 
 6. You can also use SimpleClient.py to connect the Flast service running.
 For this you open another cmd window , activate the venv and type:
