@@ -43,16 +43,26 @@ Dockerfile does this with corresponding command.
 ---------------- Files Descriptions ---------------
 
 .gitignore - prevents tracking in library folders or Python virtual environment.
+
 LICENSE - a license text.
+
 PassiveNLPFunctions.py - Library of the functions searching the passive voice sentences in the text given.
+
 PassiveSentenceSearch.py - Flask Web-service opening port 0.0.0.0 for JSON HTTP GET requests and returning passive sentences JSON list.
+
 README - this file.
+
 SimpleClient.py - to access the PassiveSentenceSearch.py service running when no curl or Postman available.
+
 dockerfile - Used by dockerimagebuild.bat command to build docker image. Packs the files and venv into the docker image.
+
 dockerimagebuild.bat - If your Windows system has Docker Desktop (should be started), then running this bat file you may build image with service.
+
 dockerimagerun.bat - Executes the image into the Docker container exposing port 5000 for connections to PassiveSentenceSearch.py service.
+
 requirements-docker.txt - Python venv dependencies file for building the docker image. This one is short, does not lists sub-dependencies.
                           It also does not include SimpleClient.py dependencies (tkinter, requests) as it is not packed to the docker image.
+
 requirements.txt - Pythen venv file with all the dependencies. Useful for creating venv manually for both service and the client.
 
 ------------------- Text samples ------------------
