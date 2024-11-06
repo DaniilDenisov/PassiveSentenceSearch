@@ -3,8 +3,14 @@ Flask service to search for the passive voice sentences in the text given. Retur
 
 Requires Python virtual environment according to the requirements.txt.
 
-1. Download, unpack wherever you want. Open CMD shell.
-2. Create python venv (for example in C:\Users\user\Desktop\PassiveSentenceSearch)
+1. For quick services run (not for developers). Download, unpack wherever you want:
+   - Start docked desktop.
+   - Open cmd window in the repository diretory.
+   - Run dockerimagebuild.bat
+   - Run dockerimagerun.bat
+   - You may access to servies at 127.0.0.1 as shown below.
+2. For developers a bit more complicated. For example the code unpacked to C:\Users\user\Desktop\PassiveSentenceSearch.
+Create python venv (for example in C:\Users\user\Desktop\PassiveSentenceSearch)
 C:\Users\user\Desktop>cd PassiveSentenceSearch
 C:\Users\user\Desktop\PassiveSentenceSearch>C:\Users\user\AppData\Local\Programs\Python\Python312\python.exe -m venv ven
 v
@@ -13,14 +19,25 @@ v
 (venv)> pip install requirements.txt
 4. Run the application:
 (venv)> python PassiveSentenceSearch.py
-5. Access the http://127.0.0.1:5000/get_passive_sentences with curl or postman as
-follows:
+5. Access the http://127.0.0.1:5000/get_passive_spacy or http://127.0.0.1:5000/get_passive_nltk
+with curl or postman as follows:
 
-curl --location 'http://127.0.0.1:5000/get_passive_sentences' \
+curl --location 'http://127.0.0.1:5000/get_passive_spacy' \
+--header 'Content-Type: application/json' \
+--data '{"text":"The cake was eaten by the children. The children ate the cake."}'
+or
+curl --location 'http://127.0.0.1:5000/get_passive_nltk' \
 --header 'Content-Type: application/json' \
 --data '{"text":"The cake was eaten by the children. The children ate the cake."}'
 
-curl --location 'http://127.0.0.1:5000/get_passive_sentences' \
+curl --location 'http://127.0.0.1:5000/get_passive_spacy' \
+--header 'Content-Type: application/json' \
+--data '{
+  "text": "You have to be tested on your English grammar. John might be promoted next year. She wants to be invited to the party. I expect to be surprised on my birthday. You may be disappointed. I remember being taught to drive. The children are excited about being taken to the zoo. Most film stars hate being interviewed. Poodles like to be pampered."
+}
+'
+or
+curl --location 'http://127.0.0.1:5000/get_passive_nltk' \
 --header 'Content-Type: application/json' \
 --data '{
   "text": "You have to be tested on your English grammar. John might be promoted next year. She wants to be invited to the party. I expect to be surprised on my birthday. You may be disappointed. I remember being taught to drive. The children are excited about being taken to the zoo. Most film stars hate being interviewed. Poodles like to be pampered."
@@ -30,15 +47,19 @@ curl --location 'http://127.0.0.1:5000/get_passive_sentences' \
 6. You can also use SimpleClient.py to connect the Flast service running.
 For this you open another cmd window , activate the venv and type:
 python SimpleClient.py
-The client asks for the text and performs request to http://127.0.0.1:5000/get_passive_sentences.
-7. In Windows Docker Desktop should run to build and rin images as containers. Commands to run and build images
-are provided in bat files.
+The client asks for the text and performs request to urls described above.
+
+7. When you change the service or client py files make sure you changed the dockerfile if needed and
+in reqirements files.
+Make trial call for bat files to :
+In Windows Docker Desktop should run to build and run images as containers. Commands to run and build images
+are provided in bat files dockerimagebuild.bat, dockerimagerun.bat.
 
 8. In non-container mode, download NLTK pre-trained tagging libraries to your venv with:
 python -m nltk.downloader punkt averaged_perceptron_tagger
 For spacy:
 python -m spacy download en_core_web_sm
-Dockerfile does this with corresponding command.
+Dockerfile does this with corresponding commands.
 
 ---------------- Files Descriptions ---------------
 
