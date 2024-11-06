@@ -9,16 +9,16 @@ Requires Python virtual environment according to the requirements.txt.
    - Run dockerimagebuild.bat
    - Run dockerimagerun.bat
    - You may access to servies at 127.0.0.1 as shown below.
-2. For developers a bit more complicated. For example the code unpacked to C:\Users\user\Desktop\PassiveSentenceSearch.
-Create python venv (for example in C:\Users\user\Desktop\PassiveSentenceSearch)
-C:\Users\user\Desktop>cd PassiveSentenceSearch
-C:\Users\user\Desktop\PassiveSentenceSearch>C:\Users\user\AppData\Local\Programs\Python\Python312\python.exe -m venv ven
+2. For developers a bit more complicated. For this example the code unpacked to C:\Users\user\Desktop\PassiveSentenceSearch.
+Create python venv (for example in unpacking folder)
+   - C:\Users\user\Desktop>cd PassiveSentenceSearch
+   - C:\Users\user\Desktop\PassiveSentenceSearch>C:\Users\user\AppData\Local\Programs\Python\Python312\python.exe -m venv ven
 v
 3. Activate venv and install requirements.
-> C:\Users\user\Desktop\PassiveSentenceSearch\venv\Scripts\activate.bat
-(venv)> pip install requirements.txt
+   - > C:\Users\user\Desktop\PassiveSentenceSearch\venv\Scripts\activate.bat
+   - (venv)> pip install requirements.txt
 4. Run the application:
-(venv)> python PassiveSentenceSearch.py
+   - (venv)> python PassiveSentenceSearch.py
 5. Access the http://127.0.0.1:5000/get_passive_spacy or http://127.0.0.1:5000/get_passive_nltk
 with curl or postman as follows:
 
@@ -63,28 +63,18 @@ Dockerfile does this with corresponding commands.
 
 ---------------- Files Descriptions ---------------
 
-.gitignore - prevents tracking in library folders or Python virtual environment.
-
-LICENSE - a license text.
-
-PassiveNLPFunctions.py - Library of the functions searching the passive voice sentences in the text given.
-
-PassiveSentenceSearch.py - Flask Web-service opening port 0.0.0.0 for JSON HTTP GET requests and returning passive sentences JSON list.
-
-README - this file.
-
-SimpleClient.py - to access the PassiveSentenceSearch.py service running when no curl or Postman available.
-
-dockerfile - Used by dockerimagebuild.bat command to build docker image. Packs the files and venv into the docker image.
-
-dockerimagebuild.bat - If your Windows system has Docker Desktop (should be started), then running this bat file you may build image with service.
-
-dockerimagerun.bat - Executes the image into the Docker container exposing port 5000 for connections to PassiveSentenceSearch.py service.
-
-requirements-docker.txt - Python venv dependencies file for building the docker image. This one is short, does not lists sub-dependencies.
+- .gitignore - prevents tracking in library folders or Python virtual environment.
+- LICENSE - a license text.
+- PassiveNLPFunctions.py - Library of the functions searching the passive voice sentences in the text given.
+- PassiveSentenceSearch.py - Flask Web-service opening port 0.0.0.0 for JSON HTTP GET requests and returning passive sentences JSON list.
+- README - this file.
+- SimpleClient.py - to access the PassiveSentenceSearch.py service running when no curl or Postman available.
+- dockerfile - Used by dockerimagebuild.bat command to build docker image. Packs the files and venv into the docker image.
+- dockerimagebuild.bat - If your Windows system has Docker Desktop (should be started), then running this bat file you may build image with service.
+- dockerimagerun.bat - Executes the image into the Docker container exposing port 5000 for connections to PassiveSentenceSearch.py service.
+- requirements-docker.txt - Python venv dependencies file for building the docker image. This one is short, does not lists sub-dependencies.
                           It also does not include SimpleClient.py dependencies (tkinter, requests) as it is not packed to the docker image.
-
-requirements.txt - Pythen venv file with all the dependencies. Useful for creating venv manually for both service and the client.
+- requirements.txt - Pythen venv file with all the dependencies. Useful for creating venv manually for both service and the client.
 
 ------------------- Text samples ------------------
 
